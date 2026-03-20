@@ -1,0 +1,17 @@
+/*
+ * zebra-gk420d-linux: zebra-print.css
+ * Use with wkhtmltopdf via --user-style-sheet to suppress browser margins
+ * when printing HTML labels to Zebra GK420d.
+ */
+
+@page {
+    margin: 0 !important;
+}
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    max-height: 220mm;
+}
