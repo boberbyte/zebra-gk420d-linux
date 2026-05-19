@@ -57,8 +57,8 @@ entries = {
 }
 
 for key, line in entries.items():
-    if f"$SIZE_NAME/$LABEL_NAME" not in ppd:
-        # Insert after first matching existing entry
+    pattern = rf'^\*{key} $SIZE_NAME/'
+    if not re.search(pattern, ppd, re.MULTILINE):
         ppd = re.sub(
             rf'(\*{key} \S+/[^:]+:.*)',
             rf'\1\n{line}',
